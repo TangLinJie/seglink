@@ -1,8 +1,8 @@
 {
-  "cuda_devices": "0,1",
+  "cuda_devices": "3",
   "log_prefix": "pretrain_",
-  "pretrained_model": "../data/VGG_ILSVRC_16_layers_ssd.ckpt",
-  "train_datasets": "../data/synthtext_full.tf",
+  "vgg16_model": "/home/ljtang/seglink/models/VGG_ILSVRC_16_layers_ssd.ckpt",
+  "train_datasets": "/home/ljtang/SynthText/synthtext_full.tf",
   "image_height": 384,
   "image_width": 384,
   "resume_training": 0,

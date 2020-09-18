@@ -7,6 +7,10 @@ import utils
 
 FLAGS = tf.app.flags.FLAGS
 
+# Occuring error: AttributeError: weight_init_method when I convert caffe model to tf model.
+# uncomment following row when you run tool/convert_caffe_model/run.sh.
+# comment following row when you train or test model.
+# tf.app.flags.DEFINE_string("weight_init_method", "xavier", "") 
 
 class SsdVgg16():
   def __init__(self):
