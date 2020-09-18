@@ -14,7 +14,15 @@ sudo pip install --upgrade tensorflow-gpu
 
 ## Supplement
 
-I have tested it on Ubuntu 18.04 with CUDA8.0 & cuDNN5.1 & TensorFlow v1.0 & Anaconda3 Python3.5. It works well.
+There are some errors in the original code. For example, the flag 'pretrained_model' in original exp/sgd/pretrain.json isn't used in source code. I guess that the flag 'pretrained_model' should be 'vgg16_model'. I have fixed those problems which occur on following environment.
+
+I have tested it on following environment:
+```
+Ubuntu 18.04 with CUDA8.0 & cuDNN5.1 & TensorFlow v1.0 & Anaconda3 Python3.5
+```
+It works well.
+
+#### Usage
 
 Firstly, please refer to Anaconda3 document for installing conda environment.
 
@@ -24,13 +32,13 @@ conda create -n seglink python=3.5
 pip install https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.0.0-cp35-cp35m-linux_x86_64.whl
 ```
 
-Then you can download VGG model for SSD by https://github.com/conner99/VGGNet 
+Then you can download VGG model for SSD by https://github.com/conner99/VGGNet link.
 
 Then you should uncomment seglink/model_cnn.py:13 for converting caffe model to TensorFlow model.
 
 **NOTE**: After converting caffe model to TensorFlow model, you should comment seglink/model_cnn.py:13, because it has been declared in seglink/solver.py.
 
-Finally, you should generate TFRecord for training data and testing data. Training SegLink by running:
+Finally, you should see ``tool/create_datasets.py`` to generate TFRecord for training data and testing data.Training SegLink by running:
 ```
 # example for pretraining
 python ./manage.py train ./exp/sgd pretrain
